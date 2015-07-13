@@ -14,38 +14,68 @@ $(document).ready( function() {
 	$('.special.cards .image').dimmer({on: 'hover'});
 });
 	</script>
+	<style>
+#imgOut{
+	padding-top:70px; 
+	padding-bottom: 20px;
+}
+
+#img{
+	text-align:center;
+	background-image: url(./img/cover.jpg);
+	background-size: 100% 100%;
+}
+
+#img>#text{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	font-size: 2.5em;
+	padding: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background-color: rgba(255,255,255,0.2);
+}
+#img>#text>div{padding: 20px;}
+	</style>
 </head>
 <body>
-	<div class="ui secondary pointing four item menu">
+	<div class="ui secondary pointing four item fixed top large menu">
 		<a class="item active">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item" id="btn_reg" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
 		<a class="item" id="btn_pro">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" id="btn_tra" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay </a>
 	</div>
-	<div id="img" >
-		<div id="text">
-			<div>104學年度公私立大學校院招生檢討會議</div>
-			<div>104年9月8、9日(二、三)</div>
-			<div>光復校區國際會議廳第一演講室</div>
+	<div id="imgOut">
+		<div id="img" >
+			<div id="text">
+				<div>104 學年度公私立大學校院招生檢討會議</div>
+				<div>2015 年 9 月 8、9 日 (星期二、三)</div>
+				<div>光復校區國際會議廳第一演講室</div>
+			</div>
 		</div>
 	</div>
 	<div class="ui special three cards" style="width:80%;margin:0px auto">
 			<div class="card">
+				<div class="content">
+					<a class="header" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
+				</div>
 				<div class="blurring dimmable image">
 					<div class="ui dimmer">
 						<div class="ui inverted segment content">
 							<div class="center">
-							<button class="fluid ui inverted teal button"><a href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a></button>
+							<button class="fluid ui inverted teal button" onClick="location.href='reg.php'">報名&nbsp;&nbsp;&nbsp;Registration</button>
 							</div>
 						</div>
 					</div>
 					<img src="img/img1.jpg" class="ui circular image"/>
 				</div>
-				<div class="content">
-					<a class="header" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
-				</div>
 			</div>
 			<div class="card">
+				<div class="content">
+					<a class="header">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+				</div>
 				<div class="blurring dimmable image">
 					<div class="ui dimmer">
 						<div class="ui inverted segment content">
@@ -56,23 +86,20 @@ $(document).ready( function() {
 					</div>
 					<img class="ui circular image" src="img/img2.jpg"/>
 				</div>
-				<div class="content">
-					<a class="header">提案&nbsp;&nbsp;&nbsp;Proposal</a>
-				</div>
 			</div>
 			<div class="card">
+				<div class="content">
+					<a class="header" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay</a>
+				</div>
 				<div class="blurring dimmable image">
 					<div class="ui dimmer">
 						<div class="ui inverted segment content">
 							<div class="center">
-							<button class="fluid ui inverted yellow button"><a href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay</a></button>
+							<button class="fluid ui inverted yellow button" onClick="location.href='traffic.html'">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay</button>
 							</div>
 						</div>
 					</div>
 					<img class="ui circular image" src="img/img3.jpg"/>
-				</div>
-				<div class="content">
-					<a class="header" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay</a>
 				</div>
 			</div>
 	</div>

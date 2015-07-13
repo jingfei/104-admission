@@ -12,6 +12,7 @@
 	<script>
 $(document).ready( function() {
 	$('.ui.checkbox').checkbox();
+	$('select.dropdown').dropdown();
 	$("input").focus(function(){
 		$(this).css("background-color","#dedede");
 	});
@@ -27,18 +28,19 @@ $(document).ready( function() {
 		birth:	{identifier: 'birth',	rules:[{type: 'empty'}] },
 		email:	{identifier: 'email',	rules:[{type: 'empty'},{type: 'email'}] },
 		tel:	{identifier: 'tel',		rules:[{type: 'empty'}] },
+		food:	{identifier: 'food',	rules:[{type: 'empty'}] },
 	});
 });
 	</script>
 </head>
 <body>
-	<div class="ui secondary pointing four item menu">
+	<div class="ui secondary pointing four item fixed top large menu">
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item active" id="btn_reg">報名&nbsp;&nbsp;&nbsp;Registration</a>
 		<a class="item" id="btn_pro">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" id="btn_tra" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay </a>
 	</div>
-	<div style="width:80%;margin:50px 10%;">
+	<div style="width:80%;margin:70px 10%;">
 		<form id="applyForm" class="ui large form error" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
 			<font color=red> * 必要填寫欄位</font><br/><br/>
 			<div class="field">
@@ -80,11 +82,19 @@ $(document).ready( function() {
 					<br>
 				</div>
 			</div>
-			<div class="field">
+			<div class="two fields">
 				<div class="required seven wide field">
 					<label for="cell">E-mail</label>
 					<input type="text" placeholder="E-mail" id="email" name="email" class="required" size="25" maxlength="25"/>
 					<br>
+				</div>
+				<div class="required three wide field">
+					<label for="food">用餐習慣</label>
+					<select name="food" id="food" class="ui food dropdown">
+						<option value="">food</option>
+						<option value="葷">葷</option>					
+						<option value="素">素</option>	
+					</select>
 				</div>
 			</div>
 			<div class="two fields">
