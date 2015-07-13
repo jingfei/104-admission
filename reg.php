@@ -37,7 +37,7 @@ $(document).ready( function() {
 	<div class="ui secondary pointing four item fixed top large menu">
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item active" id="btn_reg">報名&nbsp;&nbsp;&nbsp;Registration</a>
-		<a class="item" id="btn_pro">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+		<a class="item" id="btn_pro" href="prop.php">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" id="btn_tra" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay </a>
 	</div>
 	<div style="width:80%;margin:70px 10%;">
@@ -83,12 +83,12 @@ $(document).ready( function() {
 				</div>
 			</div>
 			<div class="two fields">
-				<div class="required seven wide field">
+				<div class="required six wide field">
 					<label for="cell">E-mail</label>
 					<input type="text" placeholder="E-mail" id="email" name="email" class="required" size="25" maxlength="25"/>
 					<br>
 				</div>
-				<div class="required three wide field">
+				<div class="required four wide field">
 					<label for="food">用餐習慣</label>
 					<select name="food" id="food" class="ui food dropdown">
 						<option value="">food</option>
