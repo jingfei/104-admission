@@ -4,6 +4,7 @@
 	<title>104學年度公私立大學校院招生檢討會</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="keywords" content="招生檢討會">
+	<link rel="shortcut icon" href="img/school.ico" type="image/x-icon" />
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/main.js"></script>
@@ -28,7 +29,6 @@ $(document).ready( function() {
 		name:	{identifier: 'name',	rules:[{type: 'empty'}] },
 		tel:	{identifier: 'tel',		rules:[{type: 'empty'}] },
 		text1:	{identifier: 'text1',	rules:[{type: 'empty'}] },
-		text2:	{identifier: 'text2',	rules:[{type: 'empty'}] },
 	});
 	$('#class1').change(function(){
 		if( $(this).val()=="其他" ){
@@ -44,13 +44,15 @@ $(document).ready( function() {
 	</script>
 </head>
 <body>
-	<div class="ui secondary pointing four item fixed top large menu">
+	<div class="ui secondary pointing five item fixed top large menu">
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
-		<a class="item" id="btn_reg" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
-		<a class="item active" id="btn_pro">提案&nbsp;&nbsp;&nbsp;Proposal</a>
-		<a class="item" id="btn_tra" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay </a>
+		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
+		<a class="item" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
+		<a class="item active">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+		<a class="item" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay </a>
 	</div>
 	<div style="width:80%;margin:70px 10%;">
+		<h1 class="ui header">「104學年度公私立大學校院招生檢討會議」提案</h1>
 		<form id="applyForm" class="ui large form error" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
 			<font color=red> * 必要填寫欄位</font><br/><br/>
 			<div class="field">
@@ -65,8 +67,11 @@ $(document).ready( function() {
 					<label for="class1">類別</label>
 					<select name="class1" id="class1" class="ui food dropdown">
 						<option value="">類別</option>
-						<option value="教務長">教務長</option>
-						<option value="教務">教務 (含招生、註冊、課務等)</option>	
+						<option value="學士班招生">學士班招生</option>
+						<option value="研究所招生">研究所招生</option>	
+						<option value="同等學力">同等學力</option>	
+						<option value="轉學">轉學</option>	
+						<option value="特種生">特種生</option>	
 						<option value="其他">其他</option>
 					</select>
 				</div>
@@ -108,7 +113,7 @@ $(document).ready( function() {
 				</div>
 			</div>
 			<div class="field">
-				<div class="required fourteen wide field">
+				<div class="fourteen wide field">
 					<label for="text2">辦法</label>
 					<textarea style="height:150px" id="text2" name="text2"></textarea>
 				</div>
