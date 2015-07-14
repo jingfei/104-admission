@@ -42,7 +42,7 @@ $(document).ready( function() {
 		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
 		<a class="item active">報名&nbsp;&nbsp;&nbsp;Registration</a>
 		<a class="item" href="prop.php">提案&nbsp;&nbsp;&nbsp;Proposal</a>
-		<a class="item" href="traffic.html">交通住宿&nbsp;&nbsp;&nbsp;Traffic & Stay </a>
+		<a class="item" href="trans.html">交通住宿&nbsp;&nbsp;&nbsp;Transport & Stay</a>
 	</div>
 	<div style="width:80%;margin:70px 10%;">
 		<h1 class="ui header">「104學年度公私立大學校院招生檢討會議」報名</h1>
