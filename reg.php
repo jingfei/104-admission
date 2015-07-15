@@ -29,9 +29,7 @@ $(document).ready( function() {
 		birth:	{identifier: 'birth',	rules:[{type: 'empty'}] },
 		email:	{identifier: 'email',	rules:[{type: 'empty'},{type: 'email'}] },
 		tel:	{identifier: 'tel',		rules:[{type: 'empty'}] },
-		food1:	{identifier: 'food1',	rules:[{type: 'empty'}] },
-		food2:	{identifier: 'food2',	rules:[{type: 'empty'}] },
-		food3:	{identifier: 'food3',	rules:[{type: 'empty'}] },
+		food:	{identifier: 'food',	rules:[{type: 'empty'}] },
 	});
 });
 	</script>
@@ -88,11 +86,19 @@ $(document).ready( function() {
 					<br>
 				</div>
 			</div>
-			<div class="field">
+			<div class="two fields">
 				<div class="required six wide field">
 					<label for="cell">E-mail</label>
 					<input type="text" placeholder="E-mail" id="email" name="email" class="required" size="25" maxlength="25"/>
 					<br>
+				</div>
+				<div class="required three wide field">
+					<label for="food">飲食習慣</label>
+					<select name="food" id="food" class="ui dropdown">
+						<option value="">Food</option>
+						<option value="葷">葷</option>					
+						<option value="素">素</option>	
+					</select>
 				</div>
 			</div>
 			<div class="two fields">
@@ -107,31 +113,23 @@ $(document).ready( function() {
 					<br>
 				</div>
 			</div>
-			<h4 class="ui dividing header">用餐習慣</h4>
-			<div class="inline three fields">
-				<div class="required three wide field">
+			<h4 class="ui dividing header">是否參與用餐</h4>
+			<div class="field">
+				<div class="ui toggle checkbox">
+					<input type="checkbox" name="food1" tabindex="0" class="hidden">
 					<label for="food1">9月8日中餐</label>
-					<select name="food1" id="food1" class="ui dropdown">
-						<option value="">9月8日中餐</option>
-						<option value="葷">葷</option>					
-						<option value="素">素</option>	
-					</select>
 				</div>
-				<div class="required three wide field">
+			</div>
+			<div class="field">
+				<div class="ui toggle checkbox">
+					<input type="checkbox" name="food2" tabindex="0" class="hidden">
 					<label for="food2">9月8日晚宴</label>
-					<select name="food2" id="food2" class="ui dropdown">
-						<option value="">9月8日晚宴</option>
-						<option value="葷">葷</option>					
-						<option value="素">素</option>	
-					</select>
 				</div>
-				<div class="required three wide field">
+			</div>
+			<div class="field">
+				<div class="ui toggle checkbox">
+					<input type="checkbox" name="food3" tabindex="0" class="hidden">
 					<label for="food3">9月9日中餐</label>
-					<select name="food3" id="food3" class="ui dropdown">
-						<option value="">9月9日中餐</option>
-						<option value="葷">葷</option>					
-						<option value="素">素</option>	
-					</select>
 				</div>
 			</div>
 			<h4 class="ui dividing header">搭乘接駁專車</h4>
@@ -172,6 +170,21 @@ $(document).ready( function() {
 			</div>
 		</form>
 	</div>
-	<footer class="ui divider small header right aligned">Designed by Jingfei </footer>
+	<footer class="ui divider grid small header" style="margin:0 10px">
+		<div class="row">
+			<div class="left floated three wide column">
+				[contact]<br/>
+				招生組組長 黃信復<br/> 06-2757575 #50191<br/> sfhuang@mail.ncku.edu.tw<br/><br/>
+			</div>
+			<div class="left floated three wide column"><br/>
+				招生組組員 許明如<br/> 06-2757575 #50198<br/> z9302009@email.ncku.edu.tw
+			</div>
+			<div class="right floated right aligned five wide column" style="color:gray"><br/>
+				Copyright &copy; 2015 國立成功大學<br/>
+				70101 台南市東區大學路一號&nbsp;｜&nbsp;06-2757575<br/>
+				Designed by Jingfei
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
