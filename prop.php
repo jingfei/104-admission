@@ -44,6 +44,39 @@ $(document).ready( function() {
 	</script>
 </head>
 <body>
+<?php
+include("config.php");
+
+// define variables and set to empty values
+$schoolErr = $officeErr = $titleErr = $nameErr = $idErr = $birthErr = $emailErr = $telErr = $cellErr = $foodErr = "";
+$school = $office = $title = $name = $id = $birth = $email = $tel = $cell = $food = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$reason = test_input($_POST["reason"]);
+	$other = test_input($_POST["other"]);
+	$class2= test_input($_POST["class2"]);
+	$office = test_input($_POST["office"]);
+	$name = test_input($_POST["name"]);
+	$tel = test_input($_POST["tel"]);
+	$text1 = test_input($_POST["text1"]);
+	$text2 = test_input($_POST["text2"]);
+	
+	$sql = "INSERT into `proposal` (reason,class1,class2,office,name,tel,text1,text2) values ('$reason','$other','$class2','$office','$name','$tel','$text1','$text2')";
+	if(mysql_query($sql)){
+		echo '<meta http-equiv=REFRESH CONTENT=1;url=success_prop.html>';
+	}
+	else{
+		echo '<meta http-equiv=REFRESH CONTENT=1;url=fail_prop.html>';
+	}
+}
+
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data, ENT_QUOTES);
+   return $data;
+}
+?>
 	<div class="ui secondary pointing five item fixed top large menu">
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
@@ -53,7 +86,7 @@ $(document).ready( function() {
 	</div>
 	<div style="width:80%;margin:70px 10%;">
 		<h1 class="ui header">「104學年度公私立大學校院招生檢討會議」提案</h1>
-		<form id="applyForm" class="ui large form error" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
+		<form id="applyForm" class="ui large form error" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onSubmit="return validForm();">	
 			<font color=red> * 必要填寫欄位</font><br/><br/>
 			<div class="field">
 				<div class="required fourteen wide field">
@@ -142,3 +175,11 @@ $(document).ready( function() {
 	</footer>
 </body>
 </html>
+<script>
+function validForm(){
+	$ans = confirm('提案後便無法修改，請再次確認內容是否正確');
+	if($ans)
+		return true;
+	return false;
+}
+</script>
