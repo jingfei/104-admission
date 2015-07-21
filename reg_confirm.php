@@ -63,8 +63,8 @@ function test_input($data) {
 	<div class="ui secondary pointing five item fixed top large menu">
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
-		<a class="item active" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
-		<a class="item" href="prop.php">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+		<a class="item active" href="reg.html">報名&nbsp;&nbsp;&nbsp;Registration</a>
+		<a class="item" href="prop.html">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" href="trans.html">交通住宿&nbsp;&nbsp;&nbsp;Transport & Stay </a>
 	</div>
 	<div class="content" id="success" style="margin:70px auto; width:80%;display:none;">
