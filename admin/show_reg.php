@@ -36,6 +36,7 @@ $result = mysql_query($check) or die("nope!");
 echo "<table class='ui definition celled table'>";
 echo "<thead><tr>";
 echo "<th></th>";
+echo "<th>報名時間</th>";
 echo "<th>學校</th>";
 echo "<th>單位</th>";
 echo "<th>職稱</th>";
@@ -54,6 +55,8 @@ echo "<th>會場 to 高鐵</th>";
 echo "<th>會場 <-> 住宿</th>";
 echo "<th>文教活動</th>";
 echo "<th>學習時數</th>";
+echo "<th>開車</th>";
+echo "<th>車牌號碼</th>";
 echo "</tr></thead>";
 echo "<tbody>";
 while($row = mysql_fetch_array($result))
@@ -78,6 +81,9 @@ while($row = mysql_fetch_array($result))
 	echo "<td>$row[15]</td>";
 	echo "<td>$row[16]</td>";
 	echo "<td>$row[17]</td>";
+	echo "<td>$row[18]</td>";
+	echo "<td>$row[19]</td>";
+	echo "<td>$row[20]</td>";
 	echo "</tr>";
 
 }

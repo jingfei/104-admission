@@ -36,6 +36,7 @@ $result = mysql_query($check) or die("nope!");
 echo "<table class='ui definition celled table'>";
 echo "<thead><tr>";
 echo "<th></th>";
+echo "<th>提案時間</th>";
 echo "<th>案由</th>";
 echo "<th>類別</th>";
 echo "<th>分類</th>";
@@ -58,6 +59,7 @@ while($row = mysql_fetch_array($result))
 	echo "<td>$row[6]</td>";
 	echo "<td>$row[7]</td>";
 	echo "<td>$row[8]</td>";
+	echo "<td>$row[9]</td>";
 	echo "</tr>";
 
 }
