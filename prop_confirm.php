@@ -26,9 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$tel = test_input($_POST["tel"]);
 	$text1 = test_input($_POST["text1"]);
 	$out1 = str_replace("\r\n", "<br/>", $text1);
+	$out1 = str_replace(" ", "&nbsp;", $out1);
 	$text1 = str_replace("\r\n", "\\n", $text1);
 	$text2 = test_input($_POST["text2"]);
 	$out2 = str_replace("\r\n", "<br/>", $text2);
+	$out2 = str_replace(" ", "&nbsp;", $out2);
 	$text2 = str_replace("\r\n", "\\n", $text2);
 }
 

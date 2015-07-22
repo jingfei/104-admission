@@ -58,7 +58,11 @@ while($row = mysql_fetch_array($result))
 	echo "<td>$row[5]</td>";
 	echo "<td>$row[6]</td>";
 	echo "<td>$row[7]</td>";
+	$row[8] = str_replace("\n", "<br/>", $row[8]);
+	$row[8] = str_replace(" ", "&nbsp;", $row[8]);
 	echo "<td>$row[8]</td>";
+	$row[9] = str_replace("\n", "<br/>", $row[9]);
+	$row[9] = str_replace(" ", "&nbsp;", $row[9]);
 	echo "<td>$row[9]</td>";
 	echo "</tr>";
 
