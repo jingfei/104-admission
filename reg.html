@@ -4,7 +4,7 @@
 	<title>104學年度公私立大學校院招生檢討會</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="keywords" content="招生檢討會">
-	<link rel="shortcut icon" href="img/school.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="img/ncku.ico" type="image/x-icon" />
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/main.js"></script>
@@ -30,6 +30,23 @@ $(document).ready( function() {
 		email:	{identifier: 'email',	rules:[{type: 'empty'},{type: 'email'}] },
 		tel:	{identifier: 'tel',		rules:[{type: 'empty'}] },
 		food:	{identifier: 'food',	rules:[{type: 'empty'}] },
+		plate:	{identifier: 'plate',	rules:[{type: 'empty'}] },
+	},{
+		onFailure:function(){
+		 	$('html, body').animate({ scrollTop: $("#applyForm").offset().top }, 1000);
+			return false;
+		}
+	}
+	);
+	$("#other3").change(function(){
+		if( $(this).is(":checked") ){ 
+			$("#plate").val("");
+			$("#plate").parent().show();
+		}
+		else{
+			$("#plate").val("X");
+			$("#plate").parent().hide();
+		}
 	});
 });
 	</script>
@@ -39,30 +56,30 @@ $(document).ready( function() {
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
 		<a class="item active">報名&nbsp;&nbsp;&nbsp;Registration</a>
-		<a class="item" href="prop.php">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+		<a class="item" href="prop.html">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" href="trans.html">交通住宿&nbsp;&nbsp;&nbsp;Transport & Stay</a>
 	</div>
 	<div style="width:80%;margin:70px 10%;">
 		<h1 class="ui header">「104學年度公私立大學校院招生檢討會議」報名</h1>
-		<form id="applyForm" class="ui large form error" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
+		<form id="applyForm" class="ui large form error secondary piled segment" method="post" action="reg.html" style="background-color:#ffedcc;">
 			<font color=red> * 必要填寫欄位</font>
 			<h4 class="ui dividing header">工作單位</h4>
 			<div class="field">
 				<div class="required ten wide field">
 					<label for="school">學校</label>
-					<input type="text" placeholder="School" id="school" name="school" class="required" size="25" maxlength="25" />
+					<input type="text" placeholder="School" id="school" name="school" class="required" size="50" maxlength="50" />
 					<br>
 				</div>
 			</div>
 			<div class="two fields">
 				<div class="required five wide field">
 					<label for="office">單位 (處、室、組)</label>
-					<input type="text" placeholder="Office" id="office" name="office" class="required" size="25" maxlength="25" />
+					<input type="text" placeholder="Office" id="office" name="office" class="required" size="50" maxlength="50" />
 					<br>
 				</div>
 				<div class="required five wide field">
 					<label for="title">職稱</label>
-					<input type="text" placeholder="Job Title" id="title" name="title" class="required" size="25" maxlength="25" />
+					<input type="text" placeholder="Job Title" id="title" name="title" class="required" size="50" maxlength="50" />
 					<br>
 				</div>
 			</div>
@@ -89,15 +106,15 @@ $(document).ready( function() {
 			<div class="two fields">
 				<div class="required six wide field">
 					<label for="cell">E-mail</label>
-					<input type="text" placeholder="E-mail" id="email" name="email" class="required" size="25" maxlength="25"/>
+					<input type="text" placeholder="E-mail" id="email" name="email" class="required" size="50" maxlength="50" />
 					<br>
 				</div>
 				<div class="required three wide field">
 					<label for="food">飲食習慣</label>
 					<select name="food" id="food" class="ui dropdown">
 						<option value="">Food</option>
-						<option value="葷">葷</option>					
-						<option value="素">素</option>	
+						<option value="葷" >葷</option>					
+						<option value="素" >素</option>	
 					</select>
 				</div>
 			</div>
@@ -109,58 +126,69 @@ $(document).ready( function() {
 				</div>
 				<div class="five wide field">
 					<label for="cell">手機</label>
-					<input type="text" placeholder="Cell Phone" id="cell" name="cell" size="25" maxlength="25"/>
+					<input type="text" placeholder="Cell Phone" id="cell" name="cell" size="25" maxlength="25" />
 					<br>
 				</div>
 			</div>
 			<h4 class="ui dividing header">是否參與用餐</h4>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="food1" tabindex="0" class="hidden">
+					<input type="checkbox" name="food1" tabindex="0" class="hidden" />
 					<label for="food1">9月8日中餐</label>
 				</div>
 			</div>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="food2" tabindex="0" class="hidden">
+					<input type="checkbox" name="food2" tabindex="0" class="hidden" />
 					<label for="food2">9月8日晚宴</label>
 				</div>
 			</div>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="food3" tabindex="0" class="hidden">
+					<input type="checkbox" name="food3" tabindex="0" class="hidden" />
 					<label for="food3">9月9日中餐</label>
 				</div>
 			</div>
 			<h4 class="ui dividing header">搭乘接駁專車</h4>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="car1" tabindex="0" class="hidden">
+					<input type="checkbox" name="car1" tabindex="0" class="hidden" />
 					<label>9月8日高鐵台南站至會場</label>
 				</div>
 			</div>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="car2" tabindex="0" class="hidden">
+					<input type="checkbox" name="car2" tabindex="0" class="hidden" />
 					<label>9月9日會場至高鐵台南站</label>
 				</div>
 			</div>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="car3" tabindex="0" class="hidden">
+					<input type="checkbox" name="car3" tabindex="0" class="hidden" />
 					<label>會場往返住宿飯店</label>
 				</div>
 			</div>
 			<h4 class="ui dividing header">其他</h4>
+			<div class="inline fields">
+				<div class="ui toggle checkbox">
+					<input type="checkbox" name="other3" id="other3" tabindex="0" class="hidden" />
+					<label>是否自行開車前往本校</label>
+				</div>
+				<div class="field"></div>
+				<div class="required field" style="display:none">
+					<label for="plate">請填車牌號碼</label>
+					<input type="text" name="plate" id="plate" placeholder="car plate number" class="required" value="X"/>
+				</div>
+			</div>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="act" tabindex="0" class="hidden">
+					<input type="checkbox" name="other1" tabindex="0" class="hidden" />
 					<label>是否參加文教活動(暫訂奇美博物館)</label>
 				</div>
 			</div>
 			<div class="field">
 				<div class="ui toggle checkbox">
-					<input type="checkbox" name="time" tabindex="0" class="hidden">
+					<input type="checkbox" name="other2" tabindex="0" class="hidden" />
 					<label>需要公務人員終身學習時數</label>
 				</div>
 			</div>

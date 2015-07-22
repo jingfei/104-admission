@@ -4,7 +4,7 @@
 	<title>104學年度公私立大學校院招生檢討會</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="keywords" content="招生檢討會">
-	<link rel="shortcut icon" href="img/school.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="img/ncku.ico" type="image/x-icon" />
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/main.js"></script>
@@ -29,7 +29,13 @@ $(document).ready( function() {
 		name:	{identifier: 'name',	rules:[{type: 'empty'}] },
 		tel:	{identifier: 'tel',		rules:[{type: 'empty'}] },
 		text1:	{identifier: 'text1',	rules:[{type: 'empty'}] },
-	});
+	},{
+		onFailure:function(){
+		 	$('html, body').animate({ scrollTop: $("#applyForm").offset().top }, 1000);
+			return false;
+		}
+	}
+	);
 	$('#class1').change(function(){
 		if( $(this).val()=="其他" ){
 			$('#other').parent().show();
@@ -47,18 +53,18 @@ $(document).ready( function() {
 	<div class="ui secondary pointing five item fixed top large menu">
 		<a class="item" href="./">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
-		<a class="item" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
+		<a class="item" href="reg.html">報名&nbsp;&nbsp;&nbsp;Registration</a>
 		<a class="item active">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" href="trans.html">交通住宿&nbsp;&nbsp;&nbsp;Trasport & Stay </a>
 	</div>
 	<div style="width:80%;margin:70px 10%;">
 		<h1 class="ui header">「104學年度公私立大學校院招生檢討會議」提案</h1>
-		<form id="applyForm" class="ui large form error" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
+		<form id="applyForm" class="ui large form error piled segment" method="post" action="prop.html" style="background-color:#ccffd4">	
 			<font color=red> * 必要填寫欄位</font><br/><br/>
 			<div class="field">
 				<div class="required fourteen wide field">
 					<label for="school">案由</label>
-					<input type="text" placeholder="案由" id="reason" name="reason" class="required" size="25" maxlength="25" />
+					<input type="text" placeholder="案由" id="reason" name="reason" class="required" size="100" maxlength="100" />
 					<br>
 				</div>
 			</div>
@@ -77,7 +83,7 @@ $(document).ready( function() {
 				</div>
 				<div class="required seven wide field" style="display:none">
 					<label for="other">其他類別</label>
-					<input type="text" placeholder="其他類別" id="other" name="other" class="required" size="25" maxlength="25" />
+					<input type="text" placeholder="其他類別" id="other" name="other" class="required" size="50" maxlength="50" />
 					<br>
 				</div>
 				<div class="required three wide field">
@@ -92,7 +98,7 @@ $(document).ready( function() {
 			<div class="three fields">
 				<div class="required seven wide field">
 					<label for="office">提案單位</label>
-					<input type="text" placeholder="提案單位" id="office" name="office" class="required" size="25" maxlength="25" />
+					<input type="text" placeholder="提案單位" id="office" name="office" class="required" size="50" maxlength="50" />
 					<br>
 				</div>
 				<div class="required four wide field">

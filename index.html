@@ -4,7 +4,7 @@
 	<title>104學年度公私立大學校院招生檢討會</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="keywords" content="招生檢討會">
-	<link rel="shortcut icon" href="img/school.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="img/ncku.ico" type="image/x-icon" />
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/main.js"></script>
@@ -19,6 +19,11 @@ $(document).ready( function() {
 #imgOut{
 	padding-top:70px; 
 	padding-bottom: 20px;
+}
+#imgIn{
+	width:100%;
+	background-color: rgba(255,255,255,0.4);
+	text-align: left;
 }
 
 #school{
@@ -40,7 +45,7 @@ $(document).ready( function() {
 	height: 100%;
 	margin: 0 auto;
 	font-size: 2.5em;
-	padding: 50px;
+	padding: 5px 50px 50px 50px;
 	text-align: center;
 	font-weight: bold;
 	color: white;
@@ -53,13 +58,15 @@ $(document).ready( function() {
 	<div class="ui secondary pointing five item fixed top large menu">
 		<a class="item active">首頁&nbsp;&nbsp;&nbsp;Home</a>
 		<a class="item" href="agenda.html">議程&nbsp;&nbsp;&nbsp;Agenda</a>
-		<a class="item" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
-		<a class="item" href="prop.php">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+		<a class="item" href="reg.html">報名&nbsp;&nbsp;&nbsp;Registration</a>
+		<a class="item" href="prop.html">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 		<a class="item" href="trans.html">交通住宿&nbsp;&nbsp;&nbsp;Transport & Stay </a>
 	</div>
 	<div id="imgOut">
-		<div id="school"><img src="img/school.png" style="width:100%"/></div>
-		<div id="img" >
+		<div id="img">
+			<div id="imgIn">
+				<img src="img/long_ncku.png" style="height:100px"/>
+			</div>
 			<div id="text">
 				<div>104 學年度公私立大學校院招生檢討會議</div>
 				<div>104 年 9 月 8、9 日 (星期二、三)</div>
@@ -85,13 +92,13 @@ $(document).ready( function() {
 		</div>
 		<div class="card">
 			<div class="content">
-				<a class="header" href="reg.php">報名&nbsp;&nbsp;&nbsp;Registration</a>
+				<a class="header" href="reg.html">報名&nbsp;&nbsp;&nbsp;Registration</a>
 			</div>
 			<div class="blurring dimmable image">
 				<div class="ui dimmer">
 					<div class="ui inverted segment content">
 						<div class="center">
-						<a href="reg.php"><img src="img/reg.png" style="width:80%"/></a>
+						<a href="reg.html"><img src="img/reg.png" style="width:80%"/></a>
 						</div>
 					</div>
 				</div>
@@ -100,13 +107,13 @@ $(document).ready( function() {
 		</div>
 		<div class="card">
 			<div class="content">
-				<a class="header">提案&nbsp;&nbsp;&nbsp;Proposal</a>
+				<a class="header" href="prop.html">提案&nbsp;&nbsp;&nbsp;Proposal</a>
 			</div>
 			<div class="blurring dimmable image">
 				<div class="ui dimmer">
 					<div class="ui inverted segment content">
 						<div class="center">
-							<a href="prop.php"><img src="img/prop.png" style="width:80%"/></a>
+							<a href="prop.html"><img src="img/prop.png" style="width:80%"/></a>
 						</div>
 					</div>
 				</div>
