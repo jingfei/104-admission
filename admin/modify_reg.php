@@ -42,7 +42,7 @@ $result = mysql_query($check) or die("nope!");
 //Selected team deleted.
 }
 
-$check = "SELECT * FROM `register`";
+$check = "SELECT * FROM `register` ORDER BY `time`";
 $result = mysql_query($check) or die("nope!");
 
 echo "<table class='ui definition table'>";

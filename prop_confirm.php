@@ -54,11 +54,11 @@ function test_input($data) {
 	<div class="content" id="content" style="margin:70px auto; width:80%">
 		<h1 class="ui header">請再次確認以下提案資料是否正確</h1>
 		<div class="ui dimmer"><div class="ui large loader"></div></div>
-		<div class="ui fluid teal card">
-			<div class="content">
+		<div class="ui fluid pink card">
+			<div class="content" style="background-color:#FFE5FA;">
 				<h2 class="ui header"><?php echo $reason;?></h2>
 				<div class="meta"><?php echo date('Y-m-d h:i:s A');?></div>
-				<div class="description">
+				<div class="description" style="color:teal">
 					<h3><?php echo $other." ".$class2;?></h3>
 					<h3><?php echo $office." ".$name." ".$tel;?></h3>
 					<h3><b>說明：</b><br/>

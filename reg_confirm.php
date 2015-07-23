@@ -73,11 +73,11 @@ function test_input($data) {
 	<div class="content" id="content" style="margin:70px auto; width:80%">
 		<h1 class="ui header">請再次確認以下報名資料是否正確</h1>
 		<div class="ui dimmer"><div class="ui large loader"></div></div>
-		<div class="ui fluid blue card">
-			<div class="content">
+		<div class="ui fluid yellow card">
+			<div class="content" style="background-color:#FFF0D6">
 				<h2 class="ui header"><?php echo $name;?></h2>
 				<div class="meta"><?php echo date('Y-m-d h:i:s A');?></div>
-				<div class="description">
+				<div class="description" style="color:#6e90cc">
 					<h3>工作單位：<?php echo $school." ".$office." ".$title;?></h3>
 					<h3>身分證字號：<?php echo $id;?></h3>
 					<h3>生日：<?php echo $birth;?></h3>

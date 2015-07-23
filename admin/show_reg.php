@@ -30,7 +30,7 @@ include("config.php");
 $no = 1;
 
 if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-$check = "SELECT * FROM `register`";
+$check = "SELECT * FROM `register` ORDER BY `time`";
 $result = mysql_query($check) or die("nope!");
 
 echo "<table class='ui definition celled table'>";
