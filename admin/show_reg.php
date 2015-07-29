@@ -52,7 +52,7 @@ echo "<th>9/8晚宴</th>";
 echo "<th>9/9中餐</th>";
 echo "<th>高鐵 to 會場</th>";
 echo "<th>會場 to 高鐵</th>";
-echo "<th>會場 <-> 住宿</th>";
+echo "<th>會場 往返 住宿</th>";
 echo "<th>文教活動</th>";
 echo "<th>學習時數</th>";
 echo "<th>開車</th>";
@@ -61,6 +61,8 @@ echo "</tr></thead>";
 echo "<tbody>";
 while($row = mysql_fetch_array($result))
 {
+	for($i=11; $i<=19; ++$i)
+		$row[$i]=$row[$i]?"是":"否";
 	echo "<tr>";
 	echo "<td>$no</td>"; $no = $no + 1;
 	echo "<td>$row[0]</td>";
