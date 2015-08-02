@@ -16,9 +16,33 @@ if(!isset($_SESSION['user']) || empty($_SESSION['user']))
 	<link rel=stylesheet type="text/css" href="../style/main.css"/>
 	<link rel=stylesheet type="text/css" href="../style/semantic.min.css"/>
 	<style>ul{font-size:1.1em;}table{position:absolute;top:40px;}</style>
+<script>
+$(window).scroll(function(){
+	if($(this).scrollTop()<50)
+		$('#header').css({'top':'auto','position':'relative'});
+	else
+		$('#header').css({
+			'top': $(this).scrollTop(),
+			'position': 'absolute',
+		});
+});
+function Search(){
+	$("tr").each(function(){
+		if($(this).attr('id')=="header") $(this).show();
+		else if($(this).html().indexOf($("#search").val())==-1)
+			$(this).hide();
+		else $(this).show();
+	});
+	return false;
+}
+</script>
 </head>
 <body>
-	<div class="ui secondary pointing five item fixed top large menu">
+	<div class="ui secondary pointing six item fixed top large menu">
+		<div class="item"><form onSubmit="return Search();" class="ui action small input"><input type="text" id="search" placeholder="Search...">
+		  <button class="ui icon button">
+		      <i class="search icon"></i>
+			    </button></form></div>
 		<a class="item" href="show_reg.php">1. 列出報名資料</a>
 		<a class="item" href="modify_reg.php">2. 修改報名資料</a>
 		<a class="item" href="show_prop.php">3. 列出提案資料</a>
@@ -47,7 +71,7 @@ $check = "SELECT * FROM `proposal`";
 $result = mysql_query($check) or die("nope!");
 
 echo "<table class='ui definition table'>";
-echo "<thead><tr>";
+echo "<thead><tr id='header'>";
 echo "<th></th>";
 echo "<th>提案時間</th>";
 echo "<th>案由</th>";

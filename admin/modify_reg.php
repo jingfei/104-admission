@@ -15,10 +15,34 @@ if(!isset($_SESSION['user']) || empty($_SESSION['user']))
 	<script src="../js/main.js"></script>
 	<link rel=stylesheet type="text/css" href="../style/main.css"/>
 	<link rel=stylesheet type="text/css" href="../style/semantic.min.css"/>
-	<style>ul{font-size:1.1em;}table{position:absolute;top:40px;}</style>
+	<style>ul{font-size:1.1em;}table{position:absolute;top:40px;}td{width:100px;word-wrap:break-word;}input{width:90%;}</style>
+	<script>
+$(window).scroll(function(){
+	if($(this).scrollTop()<50)
+		$('#header').css({'top':'auto','position':'relative'});
+	else
+		$('#header').css({
+			'top': $(this).scrollTop(),
+			'position': 'absolute',
+		});
+});
+function Search(){
+	$("tr").each(function(){
+		if($(this).attr('id')=="header") $(this).show();
+		else if($(this).html().indexOf($("#search").val())==-1)
+			$(this).hide();
+		else $(this).show();
+	});
+	return false;
+}
+	</script>
 </head>
 <body>
-	<div class="ui secondary pointing five item fixed top large menu">
+	<div class="ui secondary pointing six item fixed top large menu">
+		<div class="item"><form onSubmit="return Search();" class="ui action small input"><input type="text" id="search" placeholder="Search...">
+		  <button class="ui icon button">
+		      <i class="search icon"></i>
+			    </button></form></div>
 		<a class="item" href="show_reg.php">1. 列出報名資料</a>
 		<a class="item active" href="modify_reg.php">2. 修改報名資料</a>
 		<a class="item" href="show_prop.php">3. 列出提案資料</a>
@@ -37,69 +61,66 @@ if($_POST["submit"] == "修改"){
 else if($_POST["submit"] == "刪除"){
 $check = "DELETE FROM `register` WHERE `id` = '" .$_POST["id"]. "'";
 $result = mysql_query($check) or die("nope!");
-//    echo "$check";
-
-//Selected team deleted.
 }
 
 $check = "SELECT * FROM `register` ORDER BY `time`";
 $result = mysql_query($check) or die("nope!");
 
-echo "<table class='ui definition table'>";
-echo "<thead><tr>";
-echo "<th></th>";
-echo "<th>報名時間</th>";
-echo "<th>學校</th>";
-echo "<th>單位</th>";
-echo "<th>職稱</th>";
-echo "<th>姓名</th>";
-echo "<th>身分證字號</th>";
-echo "<th>出生日期</th>";
-echo "<th>email</th>";
-echo "<th>飲食</th>";
-echo "<th>聯絡電話</th>";
-echo "<th>手機</th>";
-echo "<th>9/8中餐</th>";
-echo "<th>9/8晚宴</th>";
-echo "<th>9/9中餐</th>";
-echo "<th>高鐵 to 會場</th>";
-echo "<th>會場 to 高鐵</th>";
-echo "<th>會場 <-> 住宿</th>";
-echo "<th>文教活動</th>";
-echo "<th>學習時數</th>";
-echo "<th>開車</th>";
-echo "<th>車牌</th>";
-echo "<th></th>";
-echo "<th></th>";
+echo "<table class='ui definition celled table'>";
+echo "<thead><tr id='header'>";
+echo "<th style='width:61px;'></th>";
+echo "<th style='width:211px;'>報名時間</th>";
+echo "<th style='width:211px;'>學校</th>";
+echo "<th style='width:211px;'>單位</th>";
+echo "<th style='width:211px;'>職稱</th>";
+echo "<th style='width:211px;'>姓名</th>";
+echo "<th style='width:211px;'>身分證字號</th>";
+echo "<th style='width:211px;'>出生日期</th>";
+echo "<th style='width:211px;'>email</th>";
+echo "<th style='width:111px;'>飲食</th>";
+echo "<th style='width:211px;'>聯絡電話</th>";
+echo "<th style='width:211px;'>手機</th>";
+echo "<th style='width:111px;'>9/8中餐</th>";
+echo "<th style='width:111px;'>9/8晚宴</th>";
+echo "<th style='width:111px;'>9/9中餐</th>";
+echo "<th style='width:111px;'>高鐵 to 會場</th>";
+echo "<th style='width:111px;'>會場 to 高鐵</th>";
+echo "<th style='width:111px;'>會場 <-> 住宿</th>";
+echo "<th style='width:111px;'>文教活動</th>";
+echo "<th style='width:111px;'>學習時數</th>";
+echo "<th style='width:111px;'>開車</th>";
+echo "<th style='width:161px;'>車牌</th>";
+echo "<th style='width:111px;'></th>";
+echo "<th style='width:111px;'></th>";
 echo "</thead></tr>";
 echo "<tbody>";
 while($row = mysql_fetch_array($result))
 {
-	echo "<form action='modify_reg.php' method=post><tr>";
-	echo "<td>$no</td>"; $no = $no + 1;
-	echo "<td>$row[0]</td>";
-	echo "<td><input name='school' type=text size=15 value='$row[1]'></td>";
-	echo "<td><input name='office' type=text size=15 value='$row[2]'></td>";
-	echo "<td><input name='title' type=text size=15 value='$row[3]'></td>";
-	echo "<td><input name='name' type=text size=18 value='$row[4]'></td>";
-	echo "<td><input name='id' type=text size=10 value='$row[5]'></td>";
-	echo "<td><input name='birth' type=text size=10 value='$row[6]'></td>";
-	echo "<td><input name='email' type=text size=28 value='$row[7]'></td>";
-	echo "<td><select name='food'><option value='葷'>葷</option><option value='素' ".($row[8]=="素"?"selected":"").">素</option></select></td>";
-	echo "<td><input name='tel' type=text size=15 value='$row[9]'></td>";
-	echo "<td><input name='cell' type=text size=15 value='$row[10]'></td>";
-	echo "<td><select name='food1'><option value='1'>是</option><option value='0' ".($row[11]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='food2'><option value='1'>是</option><option value='0' ".($row[12]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='food3'><option value='1'>是</option><option value='0' ".($row[13]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='car1'><option value='1'>是</option><option value='0' ".($row[14]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='car2'><option value='1'>是</option><option value='0' ".($row[15]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='car3'><option value='1'>是</option><option value='0' ".($row[16]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='other1'><option value='1'>是</option><option value='0' ".($row[17]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='other2'><option value='1'>是</option><option value='0' ".($row[18]?"":"selected").">否</option></select></td>";
-	echo "<td><select name='other3'><option value='1'>是</option><option value='0' ".($row[19]?"":"selected").">否</option></select></td>";
-	echo "<td><input name='plate' type=text size=7 value='$row[20]'></td>";
-	echo "<td><input type=submit name=submit value='修改'></td>";
-	echo "<td><input type=submit value='刪除' name=submit></td>";
+	echo "<form action='modify_reg.php' method=post><tr style='width:3500px;'>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:50px'>$no</td>"; $no = $no + 1;
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'>$row[0]</td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='school' type=text size=15 value='$row[1]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='office' type=text size=15 value='$row[2]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='title' type=text size=15 value='$row[3]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='name' type=text size=18 value='$row[4]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='id' type=text size=10 value='$row[5]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='birth' type=text size=10 value='$row[6]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='email' type=text size=28 value='$row[7]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='food'><option value='葷'>葷</option><option value='素' ".($row[8]=="素"?"selected":"").">素</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='tel' type=text size=15 value='$row[9]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:200px'><input name='cell' type=text size=15 value='$row[10]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='food1'><option value='1'>是</option><option value='0' ".($row[11]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='food2'><option value='1'>是</option><option value='0' ".($row[12]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='food3'><option value='1'>是</option><option value='0' ".($row[13]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='car1'><option value='1'>是</option><option value='0' ".($row[14]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='car2'><option value='1'>是</option><option value='0' ".($row[15]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='car3'><option value='1'>是</option><option value='0' ".($row[16]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='other1'><option value='1'>是</option><option value='0' ".($row[17]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='other2'><option value='1'>是</option><option value='0' ".($row[18]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='other3'><option value='1'>是</option><option value='0' ".($row[19]?"":"selected").">否</option></select></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:150px'><input name='plate' type=text size=7 value='$row[20]'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><input type=submit name=submit value='修改'></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><input type=submit value='刪除' name=submit></div></td>";
 	echo "</tr></form>";
 
 }
