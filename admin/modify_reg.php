@@ -120,7 +120,7 @@ while($row = mysql_fetch_array($result))
 	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><select name='other3'><option value='1'>是</option><option value='0' ".($row[19]?"":"selected").">否</option></select></div></td>";
 	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:150px'><input name='plate' type=text size=7 value='$row[20]'></div></td>";
 	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><input type=submit name=submit value='修改'></div></td>";
-	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><input type=submit value='刪除' name=submit></div></td>";
+	echo "<td style='padding:5px'><div style='word-wrap:break-word;width:100px'><input type=submit value='刪除' name=submit onClick=\"return confirm('確認刪除？');\"></div></td>";
 	echo "</tr></form>";
 
 }

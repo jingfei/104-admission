@@ -100,7 +100,7 @@ while($row = mysql_fetch_array($result))
 	echo "<td><textarea name='text1' rows='5'>$row[8]</textarea></td>";
 	echo "<td><textarea name='text2' rows='5'>$row[9]</textarea></td>";
 	echo "<td><input type=submit name=submit value='修改'></td>";
-	echo "<td><input type=submit value='刪除' name=submit></td>";
+	echo "<td><input type=submit value='刪除' name=submit onClick=\"return confirm('確認刪除？');\"></td>";
 	echo "</tr></form>";
 
 }
