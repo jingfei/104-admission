@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		return;
 	}
 
-	$sql = "INSERT into `proposal` (time, reason,class1,class2,office,name,tel,text1,text2) values ('$time', '$reason','$other','$class1','$office','$name','$tel','$text1','$text2')";
+	$sql = "INSERT into `proposal` (time, reason,class1,class2,office,name,tel,text1,text2) values ('$time', '$reason','$class1','$class2','$office','$name','$tel','$text1','$text2')";
 	$result = mysql_query($sql);
 	echo $result? "yes" : "no";
 }
