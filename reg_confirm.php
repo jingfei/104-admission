@@ -157,7 +157,7 @@ function test_input($data) {
 		<div class="stackable row">
 			<div class="left floated four wide column">
 				[contact]<br/>
-				招生組組長 黃信復<br/> 06-2757575 #50191<br/> sfhuang@mail.ncku.edu.tw<br/><br/>
+				招生組組長 黃信復<br/> 0938-534-893<br/> 06-2757575 #50191<br/> sfhuang@mail.ncku.edu.tw<br/><br/>
 			</div>
 			<div class="left floated four wide column"><br/>
 				招生組組員 許明如<br/> 06-2757575 #50198<br/> z9302009@email.ncku.edu.tw
